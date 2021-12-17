@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="cBNdSE" name="DualOscillator" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="EAnifL" name="DualOscillator">
+    <GROUP id="{863E29F0-F20E-8BE2-6456-015486CBF707}" name="Source">
+      <FILE id="K7oWmf" name="Tube.h" compile="0" resource="0" file="Source/Tube.h"/>
+      <GROUP id="{4733C3FA-D20C-EE07-222F-CB87422BFFF2}" name="Data">
+        <FILE id="OSSvG9" name="AdsrData.cpp" compile="1" resource="0" file="Source/Data/AdsrData.cpp"/>
+        <FILE id="EZoArV" name="AdsrData.h" compile="0" resource="0" file="Source/Data/AdsrData.h"/>
+      </GROUP>
+      <FILE id="DHVLLc" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
+      <FILE id="OPqHyV" name="SynthVoice.cpp" compile="1" resource="0" file="Source/SynthVoice.cpp"/>
+      <FILE id="AEg2Wk" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
+      <FILE id="qPPuDE" name="UI.cpp" compile="1" resource="0" file="Source/UI.cpp"/>
+      <FILE id="XCfgb2" name="UI.h" compile="0" resource="0" file="Source/UI.h"/>
+      <FILE id="HLCx99" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="Fl1Tg2" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="ea4Pf1" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="x9CaXE" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+    <GROUP id="{9E42B091-52E0-D8A4-DDBF-4F9A49707CB0}" name="Assets">
+      <GROUP id="{2D2B0853-9B44-3BC1-8DEE-2D954EE13E05}" name="corona">
+        <FILE id="CVOXwX" name="border.png" compile="0" resource="1" file="Source/Assets/corona/border.png"/>
+        <FILE id="Oj1SCa" name="corona.png" compile="0" resource="1" file="Source/Assets/corona/corona.png"/>
+      </GROUP>
+      <GROUP id="{2DDB8C41-1430-1DF8-65BE-629FB0E68F83}" name="knob">
+        <FILE id="CMfKvg" name="knobCentr.png" compile="0" resource="1" file="Source/Assets/knob/knobCentr.png"/>
+        <FILE id="FfTLbs" name="knobb.png" compile="0" resource="1" file="Source/Assets/knobb.png"/>
+        <FILE id="dTScoq" name="knob.png" compile="0" resource="1" file="Source/Assets/knob.png"/>
+        <FILE id="H4fTQj" name="knob1.png" compile="0" resource="1" file="Source/Assets/knob/knob1.png"/>
+        <FILE id="QoOIK8" name="knob_cent.png" compile="0" resource="1" file="Source/Assets/knob/knob_cent.png"/>
+        <FILE id="br5Fyv" name="knob_picc.png" compile="0" resource="1" file="Source/Assets/knob/knob_picc.png"/>
+      </GROUP>
+      <GROUP id="{425FCED0-C450-0604-4754-1504B5E120E2}" name="led">
+        <FILE id="PpcKGn" name="big_led_1.png" compile="0" resource="1" file="Source/Assets/led/big_led_1.png"/>
+        <FILE id="GTdjh4" name="big_led_2.png" compile="0" resource="1" file="Source/Assets/led/big_led_2.png"/>
+      </GROUP>
+      <GROUP id="{1D51D3FF-F732-EDD5-9CB7-B27484237A38}" name="switch">
+        <FILE id="gXJvQB" name="switch_1.png" compile="0" resource="1" file="Source/Assets/switch/switch_1.png"/>
+        <FILE id="ePuFXr" name="switch_2.png" compile="0" resource="1" file="Source/Assets/switch/switch_2.png"/>
+      </GROUP>
+      <FILE id="Xmy52u" name="back.png" compile="0" resource="1" file="Source/Assets/back.png"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="DualOscillator"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="DualOscillator"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../Applications/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>

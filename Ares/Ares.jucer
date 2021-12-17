@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="zzb7wC" name="RustyBox" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="34Audiovisuals"
+              companyWebsite="www.diegocapoccitti.com" companyCopyright="@2021"
+              companyEmail="diego.capoccitti@gmail.com" pluginFormats="buildAAX,buildAU,buildStandalone,buildVST3"
+              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              pluginVST3Category="Fx,Instrument">
+  <MAINGROUP id="x6VUJy" name="RustyBox">
+    <GROUP id="{9B0A5F2D-7347-D95C-22B3-494AEFD7C69C}" name="Source">
+      <FILE id="qXqYOV" name="Look.h" compile="0" resource="0" file="Source/Look.h"/>
+      <GROUP id="{D57C5989-A249-3DCA-913D-7F92A8530B98}" name="Graphics">
+        <GROUP id="{CA02B76D-7EC1-0867-4731-22F90A996AAB}" name="knob">
+          <FILE id="ALzbk9" name="ledB.png" compile="0" resource="1" file="Source/Graphics/knob/ledB.png"/>
+          <FILE id="VmI7Nf" name="led.png" compile="0" resource="1" file="Source/Graphics/knob/led.png"/>
+          <FILE id="eUPWMQ" name="analogLedOff.png" compile="0" resource="1"
+                file="Source/Graphics/knob/analogLedOff.png"/>
+          <FILE id="VYQgb1" name="analogLedOn.png" compile="0" resource="1" file="Source/Graphics/knob/analogLedOn.png"/>
+          <FILE id="TYAoRZ" name="analogLed1.png" compile="0" resource="1" file="Source/Graphics/knob/analogLed1.png"/>
+          <FILE id="O57Pab" name="onOffLedOff.png" compile="0" resource="1" file="Source/Graphics/knob/onOffLedOff.png"/>
+          <FILE id="QgDhlc" name="onOffLedOn.png" compile="0" resource="1" file="Source/Graphics/knob/onOffLedOn.png"/>
+          <FILE id="XusquW" name="onOffButton.png" compile="0" resource="1" file="Source/Graphics/knob/onOffButton.png"/>
+          <FILE id="nomlpx" name="indexKnob.png" compile="0" resource="1" file="Source/Graphics/knob/indexKnob.png"/>
+          <FILE id="HZ24rL" name="horizSlider.png" compile="0" resource="1" file="Source/Graphics/knob/horizSlider.png"/>
+          <FILE id="nPJVBv" name="horizSlider2.png" compile="0" resource="1"
+                file="Source/Graphics/knob/horizSlider2.png"/>
+          <FILE id="KF0ers" name="switch.png" compile="0" resource="1" file="Source/Graphics/knob/switch.png"/>
+          <FILE id="CMyVRT" name="volumeKnob.png" compile="0" resource="1" file="Source/Graphics/knob/volumeKnob.png"/>
+        </GROUP>
+        <GROUP id="{C69753A7-5B1C-7F47-87EB-A513468B0ED5}" name="label">
+          <FILE id="irVCdp" name="audiovisual.png" compile="0" resource="1" file="Source/Graphics/label/audiovisual.png"/>
+          <FILE id="M11Z34" name="diegocapoccitti.png" compile="0" resource="1"
+                file="Source/Graphics/label/diegocapoccitti.png"/>
+          <FILE id="i55WmB" name="freq.png" compile="0" resource="1" file="Source/Graphics/label/freq.png"/>
+          <FILE id="Hu5OYl" name="Index.png" compile="0" resource="1" file="Source/Graphics/label/Index.png"/>
+          <FILE id="KpGIfR" name="OnOff.png" compile="0" resource="1" file="Source/Graphics/label/OnOff.png"/>
+          <FILE id="qogUbY" name="padevolution.png" compile="0" resource="1"
+                file="Source/Graphics/label/padevolution.png"/>
+          <FILE id="LykAzE" name="random.png" compile="0" resource="1" file="Source/Graphics/label/random.png"/>
+          <FILE id="TNxO8J" name="reverb.png" compile="0" resource="1" file="Source/Graphics/label/reverb.png"/>
+          <FILE id="bupd25" name="rusty.png" compile="0" resource="1" file="Source/Graphics/label/rusty.png"/>
+          <FILE id="X9YHIP" name="site.png" compile="0" resource="1" file="Source/Graphics/label/site.png"/>
+          <FILE id="A0m15g" name="time.png" compile="0" resource="1" file="Source/Graphics/label/time.png"/>
+          <FILE id="gPl4jE" name="Volume1.png" compile="0" resource="1" file="Source/Graphics/label/Volume1.png"/>
+        </GROUP>
+        <FILE id="VLwCFZ" name="Back.jpg" compile="0" resource="1" file="Source/Graphics/Back.jpg"/>
+      </GROUP>
+      <GROUP id="{F9C25B02-0E85-63C0-47DA-B843DF68E827}" name="Synth">
+        <GROUP id="{FAFDE3A9-0447-9061-241B-1363DEAD4693}" name="Data">
+          <FILE id="TVgG7G" name="AdsrData.cpp" compile="1" resource="0" file="Source/Data/AdsrData.cpp"/>
+          <FILE id="Gi3elu" name="AdsrData.h" compile="0" resource="0" file="Source/Data/AdsrData.h"/>
+        </GROUP>
+        <FILE id="LEGhV2" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
+        <FILE id="KbYBxp" name="SynthVoice.cpp" compile="1" resource="0" file="Source/SynthVoice.cpp"/>
+        <FILE id="cNI19G" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
+      </GROUP>
+      <GROUP id="{6A6B03CC-A2EE-88C6-2973-CB7224C7421D}" name="FM">
+        <FILE id="PpmR9H" name="OscSin.h" compile="0" resource="0" file="Source/OscSin.h"/>
+        <FILE id="iqa5mR" name="SimpleFM.h" compile="0" resource="0" file="Source/SimpleFM.h"/>
+      </GROUP>
+      <FILE id="pnwcp6" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="P9trNT" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="GbDLVF" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="or5vcN" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="J9SqcA" name="Sequence.h" compile="0" resource="0" file="Source/Sequence.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="RustyBox"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="RustyBox"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../Applications/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>

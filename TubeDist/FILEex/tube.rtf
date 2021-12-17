@@ -1,0 +1,119 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh12620\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 /*\
+'tape/tube warmth' GenExpr function by stkr, Feb. 2012.\
+-------\
+based on 'TapTubeWarmth' LADSPA plugin by Tom Szilagyi, 2004,\
+http://tap-plugins.sourceforge.net/ladspa/tubewarmth.html\
+Tom Szilagyi's original text follows the code...\
+-------\
+*/\
+	// utility functions:\
+M(x) \{\
+	EPS = 0.000000001;\
+	xgeps = x > EPS;\
+	xleps = x < -EPS;\
+	glps = clip((xgeps + xleps), 0, 1);\
+	return glps ? x : 0.;\
+\}\
+D(x) \{\
+	EPS = 0.000000001;\
+	xgeps = x > EPS;\
+	xleps = x < -EPS;\
+	geps = xgeps ? sqrt(x) : 0.;\
+	return xleps ? sqrt(-x) : geps;\
+\}\
+	// effect:\
+// feedbacks:\
+	History med(0), prevmed(0), prevout(0);\
+// controls:\
+	ingain = dbtoa(clip(in2, -48., 48.));\
+	outgain = dbtoa(clip(in5, -24., 12.));\
+	drive = clip(in3, 0.1, 10.);\
+	blend = clip(in4, -10., 10.);\
+// variables:\
+	rdrive = 12. / drive;\
+	rdrive2 = rdrive * rdrive;\
+	rbdr = rdrive / (10.5 - blend) * 780. / 33.;\
+	rbdr2 = rbdr * rbdr;\
+	kpa = D(2. * rdrive2 - 1.) + 1.;\
+	kpb = (2. - kpa) / 2.;\
+	ap = (rdrive2 - kpa + 1.) / 2.;\
+	kc = kpa / D(2. * D(2. * rdrive2 - 1.) - 2. * rdrive2);\
+	kc2 = kc * kc;\
+// coefficients:\
+	srct = (0.1 * samplerate) / (0.1 * samplerate + 1.);\
+	sq = kc2 + 1.;\
+	knb = -1. * rbdr / D(sq);\
+	kna = 2. * kc * rbdr / D(sq);\
+	an = rbdr2 / sq;\
+	imr = 2. * knb + D(2. * kna + 4. * an - 1.);\
+	pwrq = 2. / (imr + 1.);\
+// perform:\
+	xin = in1 * ingain;\
+	ifmed = xin >= 0.;\
+	med1 = (D(ap + xin * (kpa - xin)) + kpb) * pwrq;\
+	med2 = (D(an - xin * (kna + xin)) + knb) * pwrq * -1.;\
+	med = ifmed ? med1 : med2;\
+	y = maximum((srct * (med - prevmed + prevout)), -1.);\
+// update:\
+	prevmed = M(med);\
+	prevout = M(y);\
+// output:\
+	out1 = dcblock(y * outgain);\
+/*\
+-------\
+Usage tips\
+	Tube preamps and reel-to-reel tape recorders have been around for a long time.\
+Until the end of the seventies, the sound of almost every great recording bears\
+the watermarks of these intrinsically nonlinear devices. In the eighties\
+everything went digital, and the "harmful", "non-perfect" nonlinearities were\
+greatly eliminated from the recording and mix-down process. However, it became\
+clearly obvious shortly afterwards, that without these nonlinear artifacts\
+recordings often sound dull, boring, colourless and thin, just like a piece of\
+plastic. As a result, efforts have been made to bring the sound of analog\
+equipment back to the studio -- with the power of DSP. This plugin offers the\
+sound of these analog devices, but without the high-frequency roll-off of tube\
+amps and the hiss of reel-to-reel tape machines. With this plugin applied and\
+properly adjusted, many types of source materials will sound subtly richer, warmer,\
+fatter, and closer.\
+	The Drive slider adjusts the amount of the effect. Values between 2 and 5 are\
+a good starting point for a variety of source materials. Since audio tracks can\
+vary quite a bit in average and peak levels, experiment with this setting and use\
+your ears to get the sound you want. (It's quite easy if you know how real tube\
+amps sound like...) If the drive level is set too high, the signal will most\
+likely sound distorted. If it's too low, you may not hear the effect working.\
+	The Tape--Tube Blend slider controls the colour of the TubeWarmth sound. When\
+set all the way to the right (+10 or default position), the plugin emulates the\
+sound of triode tube distortion. The result is asymmetrical, producing mostly\
+second harmonics and some third. When set all the way to the left (-10), the\
+plugin emulates the sound of analog tape. The result is symmetrical and produces\
+mostly third harmonics and some second. With high drive settings, moving the blend\
+control to the left increases the apparent loudness of low-level signals dramatically.\
+This is because the zero-attack, zero-release compression effect is increased under\
+these conditions. Use the blend control to set the sound of the plugin anywhere\
+between Tape and Tube sound.\
+	In multitrack production work, using TAP TubeWarmth on selected individual\
+tracks before the mixdown is generally a smart idea. Applying the plugin to electric\
+guitars and bass is essential. A smaller amount applied to cymbals can make their\
+sound substantially richer. Also, don't miss a try on your keyboards and vocals.\
+Start with Tape--Tube Blend set to +10 for tube emulation, which is the default.\
+This generally has a more musical effect than tape emulation, but of course this\
+will depend on the source material, taste, and the dictates of your project.\
+	To warm up a stereo mix during mastering, a Drive setting of 2 or 1 or even\
+lower may be most appropriate, but this depends on the overall level. Look for an\
+increase in the apparent loudness or fattening of the low end, and that warm tube\
+sound. Too much effect and you'll hear the low end get too loose and/or the top\
+end get too sizzly.\
+	TAP TubeWarmth does not limit high frequency response. Some tube circuits,\
+especially preamps with high gain, will start to roll off before 20 kHz. This is\
+due to the plate-to-grid Miller capacitance. The plugin purposefully does not do\
+this. If you want to limit highs (which can, in itself, make things sound a little\
+warmer) use an equalizer plugin. You could do this before but will probably want\
+to do it after processing with TubeWarmth.\
+}
